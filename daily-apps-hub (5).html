@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Walk-Around Apps Hub</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --container-bg: #1e1e1e;
+            --text-color: #e0e0e0;
+            --app-bg: #2e2e2e;
+            --app-border: #3e3e3e;
+            --electronics-color: #FF7E8A;
+            --reminders-color: #5EEAD4;
+            --adaptations-color: #FFC25F;
+            --games-color: #A78BFA;
+            --work-color: #4CAF50;
+            --header-bg: #252525;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: var(--container-bg);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        }
+        .header {
+            text-align: left;
+            padding: 20px;
+            background: var(--header-bg);
+            border-radius: 10px 10px 0 0;
+            margin: -20px -20px 20px -20px;
+            border-bottom: 1px solid var(--app-border);
+        }
+        h1 {
+            color: #ffffff;
+            margin: 0;
+            font-size: 2em;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+        .subtitle {
+            color: #9e9e9e;
+            font-size: 0.9em;
+            margin-top: 5px;
+            font-weight: 400;
+        }
+        h2 {
+            padding-bottom: 10px;
+            font-weight: 500;
+        }
+        .app {
+            background: var(--app-bg);
+            border: 1px solid var(--app-border);
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        .app h3 {
+            margin-top: 0;
+            font-weight: 500;
+        }
+        .app p {
+            margin-bottom: 10px;
+            font-size: 0.9em;
+        }
+        .app a {
+            display: inline-block;
+            padding: 8px 12px;
+            text-decoration: none;
+            border-radius: 4px;
+            color: var(--bg-color);
+            font-weight: 500;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+        .app a:hover {
+            filter: brightness(110%);
+        }
+        
+        /* Quick Links */
+        .quick-links {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            background: var(--app-bg);
+            border-radius: 6px;
+            padding: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .quick-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 0.9em;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .quick-links a:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        .quick-links a::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 6px;
+        }
+        
+        /* Category-specific styles */
+        .electronics h2, .electronics .app h3 { color: var(--electronics-color); }
+        .electronics h2 { border-bottom: 1px solid var(--electronics-color); }
+        .electronics .app a { background-color: var(--electronics-color); }
+        .quick-links .electronics::before { background-color: var(--electronics-color); }
+        
+        .reminders h2, .reminders .app h3 { color: var(--reminders-color); }
+        .reminders h2 { border-bottom: 1px solid var(--reminders-color); }
+        .reminders .app a { background-color: var(--reminders-color); }
+        .quick-links .reminders::before { background-color: var(--reminders-color); }
+        
+        .adaptations h2, .adaptations .app h3 { color: var(--adaptations-color); }
+        .adaptations h2 { border-bottom: 1px solid var(--adaptations-color); }
+        .adaptations .app a { background-color: var(--adaptations-color); }
+        .quick-links .adaptations::before { background-color: var(--adaptations-color); }
+        
+        .games h2, .games .app h3 { color: var(--games-color); }
+        .games h2 { border-bottom: 1px solid var(--games-color); }
+        .games .app a { background-color: var(--games-color); }
+        .quick-links .games::before { background-color: var(--games-color); }
+
+        .work h2, .work .app h3 { color: var(--work-color); }
+        .work h2 { border-bottom: 1px solid var(--work-color); }
+        .work .app a { background-color: var(--work-color); }
+        .quick-links .work::before { background-color: var(--work-color); }
+
+        .footer {
+            text-align: center;
+            font-size: 0.8em;
+            color: #888;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--app-border);
+        }
+
+        @media (max-width: 600px) {
+            .quick-links {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .quick-links a {
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Daily Walk-Around Apps Hub</h1>
+            <div class="subtitle">Your essential apps collection</div>
+        </div>
+        
+        <div class="quick-links">
+            <a href="#work" class="work">Work</a>
+            <a href="#electronics" class="electronics">Electronics</a>
+            <a href="#reminders" class="reminders">Reminders</a>
+            <a href="#adaptations" class="adaptations">Adaptations</a>
+            <a href="#games" class="games">Games</a>
+        </div>
+
+        <div id="work" class="work">
+            <h2>Work Apps</h2>
+            <div class="app">
+                <h3>MicroSwitchers App Selector</h3>
+                <p>Apps that support my work as an early childhood vision consultant.</p>
+                <a href="https://microswitchers.github.io/MicroSwitchersAppSelector/" target="_blank">Open App</a>
+            </div>
+        </div>
+
+        <div id="electronics" class="electronics">
+            <h2>Electronics</h2>
+            <div class="app">
+                <h3>Button and Switch Tester</h3>
+                <p>For testing adapted single switches and computer inputs devices.</p>
+                <a href="https://microswitchers.github.io/SwitchandButtonTester/" target="_blank">Open App</a>
+            </div>
+            <div class="app">
+                <h3>ToneRevival</h3>
+                <p>For reforming vintage speakers.</p>
+                <a href="https://microswitchers.github.io/tonerevival/" target="_blank">Open App</a>
+            </div>
+        </div>
+
+        <div id="reminders" class="reminders">
+            <h2>Reminders and Time Management</h2>
+            <div class="app">
+                <h3>Visual Appointment Reminder</h3>
+                <p>A visual countdown of the time for upcoming appointments.</p>
+                <a href="https://microswitchers.github.io/AppointmentReminderApp/" target="_blank">Open App</a>
+            </div>
+        </div>
+
+        <div id="adaptations" class="adaptations">
+            <h2>Adaptations</h2>
+            <div class="app">
+                <h3>GenNoise</h3>
+                <p>An app to provide some background sound.</p>
+                <a href="https://microswitchers.github.io/gennoise/" target="_blank">Open App</a>
+            </div>
+        </div>
+
+        <div id="games" class="games">
+            <h2>Games</h2>
+            <div class="app">
+                <h3>Click-n-PatternBurgerChef</h3>
+                <p>A pattern clicking game.</p>
+                <a href="https://microswitchers.github.io/Click-n-PatternBurgerChef/" target="_blank">Open App</a>
+            </div>
+        </div>
+
+        <div class="footer">
+            Apps generated by Niall B. Using LLMs
+        </div>
+    </div>
+</body>
+</html>
