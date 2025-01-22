@@ -16,24 +16,29 @@
             --adaptations-color: #FFC25F;
             --games-color: #A78BFA;
             --work-color: #4CAF50;
+            --photography-color: #FF8C42;
             --header-bg: #252525;
+            --button-hover: #2b2b2b;
         }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Roboto', sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 20px;
             background-color: var(--bg-color);
             color: var(--text-color);
         }
+
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: auto;
             background: var(--container-bg);
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
         }
+
         .header {
             text-align: left;
             padding: 20px;
@@ -42,6 +47,7 @@
             margin: -20px -20px 20px -20px;
             border-bottom: 1px solid var(--app-border);
         }
+
         h1 {
             color: #ffffff;
             margin: 0;
@@ -49,45 +55,70 @@
             font-weight: 300;
             letter-spacing: 0.5px;
         }
+
         .subtitle {
             color: #9e9e9e;
             font-size: 0.9em;
             margin-top: 5px;
             font-weight: 400;
         }
+
         h2 {
             padding-bottom: 10px;
             font-weight: 500;
         }
+
         .app {
             background: var(--app-bg);
             border: 1px solid var(--app-border);
             border-radius: 5px;
             padding: 15px;
             margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
         }
+
+        .app img {
+            max-width: 150px;
+            border-radius: 5px;
+            margin-left: auto;
+            flex: 0 1 auto;
+        }
+
+        .app div {
+            flex: 1 1 auto;
+            min-width: 200px;
+        }
+
         .app h3 {
             margin-top: 0;
             font-weight: 500;
         }
+
         .app p {
             margin-bottom: 10px;
             font-size: 0.9em;
         }
+
         .app a {
             display: inline-block;
-            padding: 8px 12px;
+            padding: 12px 16px;
             text-decoration: none;
             border-radius: 4px;
             color: var(--bg-color);
             font-weight: 500;
             font-size: 0.9em;
+            background-color: var(--work-color);
             transition: all 0.3s ease;
+            margin-top: 10px;
         }
+
         .app a:hover {
-            filter: brightness(110%);
+            background-color: var(--button-hover);
         }
-        
+
         /* Quick Links */
         .quick-links {
             display: flex;
@@ -98,6 +129,7 @@
             padding: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
+
         .quick-links a {
             text-decoration: none;
             color: var(--text-color);
@@ -112,9 +144,11 @@
             align-items: center;
             justify-content: center;
         }
+
         .quick-links a:hover {
             background-color: rgba(255, 255, 255, 0.05);
         }
+
         .quick-links a::before {
             content: '';
             display: inline-block;
@@ -123,23 +157,23 @@
             border-radius: 50%;
             margin-right: 6px;
         }
-        
+
         /* Category-specific styles */
         .electronics h2, .electronics .app h3 { color: var(--electronics-color); }
         .electronics h2 { border-bottom: 1px solid var(--electronics-color); }
         .electronics .app a { background-color: var(--electronics-color); }
         .quick-links .electronics::before { background-color: var(--electronics-color); }
-        
+
         .reminders h2, .reminders .app h3 { color: var(--reminders-color); }
         .reminders h2 { border-bottom: 1px solid var(--reminders-color); }
         .reminders .app a { background-color: var(--reminders-color); }
         .quick-links .reminders::before { background-color: var(--reminders-color); }
-        
+
         .adaptations h2, .adaptations .app h3 { color: var(--adaptations-color); }
         .adaptations h2 { border-bottom: 1px solid var(--adaptations-color); }
         .adaptations .app a { background-color: var(--adaptations-color); }
         .quick-links .adaptations::before { background-color: var(--adaptations-color); }
-        
+
         .games h2, .games .app h3 { color: var(--games-color); }
         .games h2 { border-bottom: 1px solid var(--games-color); }
         .games .app a { background-color: var(--games-color); }
@@ -149,6 +183,11 @@
         .work h2 { border-bottom: 1px solid var(--work-color); }
         .work .app a { background-color: var(--work-color); }
         .quick-links .work::before { background-color: var(--work-color); }
+
+        .photography h2, .photography .app h3 { color: var(--photography-color); }
+        .photography h2 { border-bottom: 1px solid var(--photography-color); }
+        .photography .app a { background-color: var(--photography-color); }
+        .quick-links .photography::before { background-color: var(--photography-color); }
 
         .footer {
             text-align: center;
@@ -164,8 +203,24 @@
                 flex-direction: column;
                 align-items: stretch;
             }
+
             .quick-links a {
                 margin-bottom: 5px;
+            }
+
+            .app {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .app img {
+                max-width: 100%;
+                margin: 0 0 15px 0;
+            }
+
+            .app div {
+                max-width: 100%;
+                padding: 10px;
             }
         }
     </style>
@@ -174,79 +229,119 @@
     <div class="container">
         <div class="header">
             <h1>Daily Walk-Around Apps Hub</h1>
-            <div class="subtitle">Your essential apps collection</div>
+            <div class="subtitle">My little app collection</div>
         </div>
-        
+
         <div class="quick-links">
             <a href="#work" class="work">Work</a>
             <a href="#electronics" class="electronics">Electronics</a>
             <a href="#reminders" class="reminders">Reminders</a>
             <a href="#adaptations" class="adaptations">Adaptations</a>
             <a href="#games" class="games">Games</a>
+            <a href="#photography" class="photography">Photography</a>
         </div>
 
         <div id="work" class="work">
             <h2>Work Apps</h2>
             <div class="app">
-                <h3>MicroSwitchers App Selector</h3>
-                <p>Apps that support my work as an early childhood vision consultant.</p>
-                <a href="https://microswitchers.github.io/MicroSwitchersAppSelector/" target="_blank">Open App</a>
+                <div>
+                    <h3>MicroSwitchers App Selector</h3>
+                    <p>Apps that support my work as an early childhood vision consultant.</p>
+                    <a href="https://microswitchers.github.io/MicroSwitchersAppSelector/" target="_blank">Open App</a>
+                </div>
+                <img src="microswitchers.png" alt="MicroSwitchers">
             </div>
         </div>
 
         <div id="electronics" class="electronics">
             <h2>Electronics</h2>
             <div class="app">
-                <h3>Button and Switch Tester</h3>
-                <p>For testing adapted single switches and computer inputs devices.</p>
-                <a href="https://microswitchers.github.io/SwitchandButtonTester/" target="_blank">Open App</a>
+                <div>
+                    <h3>Button and Switch Tester</h3>
+                    <p>For testing adapted single switches and computer inputs devices. An array of buttons with all kinds of activation formats.</p>
+                    <a href="https://microswitchers.github.io/SwitchandButtonTester/" target="_blank">Open App</a>
+                </div>
+                <img src="buttontest.png" alt="Button and Switch Tester">
             </div>
             <div class="app">
-                <h3>ToneRevival</h3>
-                <p>For reforming vintage speakers.</p>
-                <a href="https://microswitchers.github.io/tonerevival/" target="_blank">Open App</a>
+                <div>
+                    <h3>ToneRevival</h3>
+                    <p>For reforming vintage speakers. Various tones and tone sweeps to used in the restoration of vintage speakers.</p>
+                    <a href="https://microswitchers.github.io/tonerevival/" target="_blank">Open App</a>
+                </div>
+                <img src="tonerevival.png" alt="ToneRevival">
             </div>
         </div>
 
         <div id="reminders" class="reminders">
             <h2>Reminders and Time Management</h2>
             <div class="app">
-                <h3>Visual Appointment Reminder</h3>
-                <p>A visual countdown of the time for upcoming appointments.</p>
-                <a href="https://microswitchers.github.io/AppointmentReminderApp/" target="_blank">Open App</a>
+                <div>
+                    <h3>Visual Appointment Reminder</h3>
+                    <p>A visual countdown of the time for upcoming appointments. A visual countdown bar helps to visualize how much time remains before appointments. Add in one or multiple appointments. Works with devices that keep the screen alive, I use it on my desktop while working. This app will not wake your device.</p>
+                    <a href="https://microswitchers.github.io/AppointmentReminderApp/" target="_blank">Open App</a>
+                </div>
+                <img src="appointmentreminder.png" alt="Visual Appointment Reminder">
             </div>
             <div class="app">
-                <h3>Colour Pulse Timer</h3>
-                <p>A timer with visual color and sound cues.</p>
-                <a href="https://microswitchers.github.io/colourpulsetimer/" target="_blank">Open App</a>
+                <div>
+                    <h3>Colour Pulse Timer</h3>
+                    <p>A timer with visual color and sound cues at consistent intervals to help with estimating the passage of time.</p>
+                    <a href="https://microswitchers.github.io/colourpulsetimer/" target="_blank">Open App</a>
+                </div>
+                <img src="colourpulsetimer.png" alt="Colour Pulse Timer">
             </div>
             <div class="app">
-                <h3>Date Cycle Calculator</h3>
-                <p>A calculator to visualize recurring appointments.</p>
-                <a href="https://microswitchers.github.io/datecyclecal/" target="_blank">Open App</a>
+                <div>
+                    <h3>Date Cycle Calculator</h3>
+                    <p>A calculator to visualize recurring appointments. Visualize reoccurring appointments on a calender over any period of time.</p>
+                    <a href="https://microswitchers.github.io/datecyclecal/" target="_blank">Open App</a>
+                </div>
+                <img src="datecycle.png" alt="Date Cycle Calculator">
             </div>
         </div>
 
         <div id="adaptations" class="adaptations">
             <h2>Adaptations</h2>
             <div class="app">
-                <h3>GenNoise</h3>
-                <p>An app to provide some background sound.</p>
-                <a href="https://microswitchers.github.io/gennoise/" target="_blank">Open App</a>
+                <div>
+                    <h3>GenNoise</h3>
+                    <p>An app to provide some background sound. It helps me to concentrate.</p>
+                    <a href="https://microswitchers.github.io/gennoise/" target="_blank">Open App</a>
+                </div>
+                <img src="gennoise.png" alt="GenNoise">
             </div>
             <div class="app">
-                <h3>CartCruncher</h3>
-                <p>Add up groceries and taxes.</p>
-                <a href="https://microswitchers.github.io/cartcruncher/index.html" target="_blank">Open App</a>
+                <div>
+                    <h3>CartCruncher</h3>
+                    <p>Add up groceries and taxes.</p>
+                    <a href="https://microswitchers.github.io/cartcruncher/index.html" target="_blank">Open App</a>
+                </div>
+                <img src="cartcruncher.png" alt="CartCruncher">
             </div>
         </div>
 
         <div id="games" class="games">
             <h2>Games</h2>
             <div class="app">
-                <h3>Click-n-PatternBurgerChef</h3>
-                <p>A pattern clicking game.</p>
-                <a href="https://microswitchers.github.io/Click-n-PatternBurgerChef/" target="_blank">Open App</a>
+                <div>
+                    <h3>Click-n-PatternBurgerChef</h3>
+                    <p>A rapid pattern clicking game. Use your mouse to match the clicks for each ingredient, but follow the directions exactly. See how complex you can get before making three mistakes. Works with a computer mouse only.</p>
+                    <a href="https://microswitchers.github.io/Click-n-PatternBurgerChef/" target="_blank">Open App</a>
+                </div>
+                <img src="burger.png" alt="Click-n-PatternBurgerChef">
+            </div>
+        </div>
+
+        <div id="photography" class="photography">
+            <h2>Photography</h2>
+            <div class="app">
+                <div>
+                    <h3>SnapLumina</h3>
+                    <p>An RGB panel light for photography or lightbox use. Includes a blue light filter and colour changing filters.</p>
+                    <a href="https://microswitchers.github.io/SnapLumina/" target="_blank">Open App</a>
+                </div>
+                <img src="snaplumina.png" alt="SnapLumina">
             </div>
         </div>
 
