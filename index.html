@@ -72,7 +72,7 @@
             background: var(--app-bg);
             border: 1px solid var(--app-border);
             border-radius: 5px;
-            padding: 15px;
+            padding: 25px; /* Increased padding */
             margin-bottom: 15px;
             display: flex;
             justify-content: space-between;
@@ -81,19 +81,23 @@
         }
 
         .app img {
-            max-width: 150px;
+            max-width: 200px; /* Increased max-width */
+            height: auto; /* Maintain aspect ratio */
             border-radius: 5px;
-            margin-left: auto;
-            flex: 0 1 auto;
+            margin-left: 20px; /* Added margin to the left */
+            margin-top: 5px;
+            flex: 0 0 auto; /* Prevent image shrinking */
         }
 
         .app div {
-            flex: 1 1 auto;
+            flex: 1 1 300px; /* Allow text to wrap */
             min-width: 200px;
+            max-width: calc(100% - 240px);
         }
 
         .app h3 {
             margin-top: 0;
+            margin-bottom: 10px;
             font-weight: 500;
         }
 
@@ -209,18 +213,23 @@
             }
 
             .app {
-                flex-direction: column;
+                flex-direction: row;
                 align-items: flex-start;
+                padding: 15px;
+                gap: 10px;
             }
 
             .app img {
-                max-width: 100%;
-                margin: 0 0 15px 0;
+                max-width: 35%;
+                margin: 0;
+                flex-shrink: 0;
             }
 
             .app div {
-                max-width: 100%;
-                padding: 10px;
+                flex: 1;
+                max-width: 65%;
+                padding: 0;
+                margin: 0;
             }
         }
     </style>
@@ -251,7 +260,16 @@
                 </div>
                 <img src="microswitchers.png" alt="MicroSwitchers">
             </div>
+            <div class="app">
+                <div>
+                    <h3>PromptFlow</h3>
+                    <p>A desktop teleprompter controlled manually and paced by the user with a mouse scroll wheel. The app is suitable for all screen sizes and has features like generating filler text and an algorithm to highlight key words for efficient reading.</p>
+                    <a href="https://microswitchers.github.io/PromptFlow/" target="_blank">Open App</a>
+                </div>
+                <img src="promptflow.png" alt="PromptFlow">
+            </div>
         </div>
+        
 
         <div id="electronics" class="electronics">
             <h2>Electronics</h2>
